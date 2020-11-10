@@ -126,13 +126,3 @@ resource "aws_lb" "lb1" {
   }
 }
 
-resource "aws_lb_listener" "elbListen" {
-  load_balancer_arn = aws_lb.lb1.arn
-  port              = "80"
-  protocol          = "HTTPS"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.tg1.arn
-  }
-}
